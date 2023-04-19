@@ -19,9 +19,14 @@ public class Main extends Application {
         stage.centerOnScreen();
         stage.setResizable(false);
         stage.show();
+        setStages(stage);
     }
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public static void setStages(Stage stage) {
+        Main_Controller.setStage(stage);
     }
 }
