@@ -3,7 +3,7 @@ package idealist.dir_explorer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class Main_Controller {
     @FXML
     private Label welcomeText;
 
