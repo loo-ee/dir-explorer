@@ -18,7 +18,7 @@
    <right>
       <ScrollPane prefHeight="291.0" prefWidth="443.0" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="listDirBox" prefHeight="296.0" prefWidth="427.0" />
+            <VBox fx:id="listDirBox" prefHeight="291.0" prefWidth="425.0" />
          </content>
       </ScrollPane>
    </right>

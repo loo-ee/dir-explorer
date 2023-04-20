@@ -4,15 +4,18 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
@@ -26,20 +29,26 @@ public class Main_Controller implements Initializable {
 
     private static Stage stage;
     private File[] directories;
-    private File[] currentParent;
 
-    Stack<File[]> directoryOrder = new Stack<>();
+    private final Stack<File[]> directoryOrder = new Stack<>();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+            listDirBox.getStyleClass().add("list-dir-box");
             setup();
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 
+    private static void addStyleSheet() {
+        Scene scene = stage.getScene();
+        scene.getStylesheets().add("styles/main_view.css");
+    }
+
     public static void setStage(Stage stage) {
         Main_Controller.stage = stage;
+        Main_Controller.addStyleSheet();
     }
 
     public void setup() throws IOException, InterruptedException {
@@ -73,6 +82,8 @@ public class Main_Controller implements Initializable {
 
             Button dir = new Button();
 
+            dir.getStyleClass().add("dir-button");
+
             if (!directories[i].getName().equals(""))
                 dir.setText(directories[i].getName());
             else
@@ -91,9 +102,8 @@ public class Main_Controller implements Initializable {
 
     @FXML
     protected void showPreviousFolder() {
-        if (directoryOrder.size() != 0) {
+        if (directoryOrder.size() != 0)
             directories = directoryOrder.pop();
-        }
 
         showList();
     }
