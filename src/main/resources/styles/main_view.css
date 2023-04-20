@@ -1,0 +1,13 @@
+.dir-button {
+    -fx-border-radius: 5px;
+    -fx-min-width: 100px;
+    -fx-max-width: 200px;
+    -fx-pref-width: 150px;
+    -fx-padding: 10px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+
+.list-dir-box {
+
+}
